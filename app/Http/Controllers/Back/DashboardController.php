@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -17,5 +18,17 @@ class DashboardController extends Controller
             'popular_articles' => Article::with('Category')->whereStatus(1)->orderBy('views', 'desc')->take(5)->get(),
         ]);
     }
+
+    public function show()
+    {
+        if (Auth::check()) {
+            $user = Auth::user()->role; // Mengambil data role dari pengguna yang sedang login
+            return view('back.dashboard.index', compact('user'));
+        } else {
+            // Handle case when user is not logged in
+            return redirect()->route('login');
+        }
+    }
+
     
 }

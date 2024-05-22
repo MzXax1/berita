@@ -1,6 +1,8 @@
 @extends('back.layout.template')  
   
-@section('title', 'Dashboard -Admin') 
+@section('title', 'Dashboard')
+
+
   
 @section('content') 
       

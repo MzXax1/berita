@@ -1,7 +1,8 @@
 @extends('front.layout.template')
 @section('title', $articles->title ,'Laravel berita') 
-@push('css')
+@push('css')    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    @livewireStyles
 @endpush
 @section('content')
 <div class="container mt-5">
@@ -28,8 +29,11 @@
                     <p class="fs-5 mb-4">{!! $articles->desc !!}</p>
                 </section>
                 <div class="text-muted fst-italic mb-2">Di di tulis oleh <b>{{ $articles->User->name }}</b></div>
+                    <livewire:comments :model="$articles"/>
             </article>
         </div>
     </div>
 </div>
+@livewireScripts
+@stack('js')
 @endsection

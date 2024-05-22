@@ -36,7 +36,6 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/p/{slug}', [FrontArticleController::class, 'show']);
 Route::post('/articles/search', [FrontArticleController::class, 'index'])->name('search');
 Route::get('/articles', [FrontArticleController::class, 'index']);
-Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
 Route::get('category/{slug}', [FrontCategoryController::class, 'index']);
 

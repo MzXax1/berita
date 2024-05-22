@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Usamamuneerchaudhary\Commentify\Traits\Commentable;
 
 class Article extends Model
 {
     use HasFactory;
+    use Commentable;
 
     protected $fillable = [
         'categories_id','user_id', 'title', 'slug', 'desc', 'img', 'status', 'views', 'publish_date'

@@ -7,11 +7,15 @@
             Dashboard
           </a>
         </li>
+        @if (auth()->check())
+        @if (auth()->user()->role == 1 || auth()->user()->role == 2)
         <li class="nav-item">
           <a class="nav-link" href="{{url('article')}}">
             <span data-feather="file" class="align-text-bottom"></span>
             Article
           </a>
+        @endif
+        @endif 
         </li>    
          <li class="nav-item">
           <a class="nav-link" href="{{('users')}}">
@@ -19,15 +23,16 @@
             Users
           </a>
         </li>
-        @if (auth()->user()->role == 1)
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('categories')}}">
-              <span data-feather="shopping-cart" class="align-text-bottom"></span>
-              Category
-            </a>
-          </li>
+        @if (auth()->check())
+        @if (auth()->user()->role == 1 )
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('categories') }}">
+                    <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                    Category
+                </a>
+            </li>
         @endif
-
+    @endif
         <li class="nav-item">
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
