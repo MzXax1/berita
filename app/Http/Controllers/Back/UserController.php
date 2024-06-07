@@ -68,30 +68,54 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UserUPdateRequest $request, string $id)
-    {
-        $data = $request->validated();
+    public function update(Request $request, string $id)
+{
+    // Validasi input
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255',
+        'password' => 'nullable|string|min:6|confirmed',
+        'role' => 'sometimes|string|in:2,0', // Hanya jika perlu, tergantung pada logika aplikasi Anda
+    ]);
 
-        
-        if ($data['password'] != '') {
-            $data['password'] = bcrypt($data['password']);
-            User::find($id)->create($data);
+    try {
+        // Temukan pengguna berdasarkan ID
+        $user = User::findOrFail($id);
+
+        // Periksa apakah pengguna yang sedang masuk adalah admin dan bukan pengguna yang ingin diubah perannya
+        if (auth()->user()->role == 1 && $user->id != auth()->user()->id) {
+            // Update data pengguna
+            $user->update([
+                'name' => $validatedData['name'],
+                'email' => $validatedData['email'],
+                'role' => $validatedData['role'], // Pastikan 'role' sesuai dengan representasi dalam basis data
+                // Jangan lupa hash kata sandi jika diperbarui
+                'password' => isset($validatedData['password']) ? bcrypt($validatedData['password']) : $user->password,
+            ]);
         } else {
-            User::find($id)->update([
-                'name' => $data['name'],
-                'email' => $data['email']
+            // Jika bukan admin, perbarui data tanpa memperbarui peran
+            $user->update([
+                'name' => $validatedData['name'],
+                'email' => $validatedData['email'],
+                // Jangan lupa hash kata sandi jika diperbarui
+                'password' => isset($validatedData['password']) ? bcrypt($validatedData['password']) : $user->password,
             ]);
         }
-        
 
-        return back()->with('success', 'User has been updated!!');
+        return back()->with('success', 'User has been updated!');
+    } catch (\Exception $e) {
+        // Tangani kesalahan
+        return back()->with('error', 'Failed to update user.');
     }
+}
+
+
 
     /**
      * Remove the specified resource from storage.

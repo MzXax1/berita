@@ -35,7 +35,7 @@
                 <tr>
                     <th>No</th>
                     <th>Name</th>
-                    <th>Emial</th>
+                    <th>Email</th>
                     <th>Created at</th>
                     <th>Function</th>
                 </tr>

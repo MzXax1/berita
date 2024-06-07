@@ -25,6 +25,7 @@ class UserUpdateRequest extends FormRequest
             'name' => 'nullable|min:3',
             'email' => 'nullable|email',
             'password' => 'nullable',
+            'rule' => 'nullable',
             'password_confirmation'  => 'nullable|min:6|required_with:password_confirmation|same:password_confirmation'
         ];
     }
