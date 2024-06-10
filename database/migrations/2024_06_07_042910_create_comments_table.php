@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->text('comment');
-            $table->foreignId('user_id');
-            $table->foreignId('article_id');
-            $table->foreignId('parent_id')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->string('slug'); // Slug field for associating with the article
+            $table->unsignedBigInteger('parent_id')->nullable(); // Nullable parent_id for replies
             $table->timestamps();
+        
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
+        
     }
 
     /**

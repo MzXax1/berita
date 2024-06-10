@@ -9,7 +9,7 @@ use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ArticleController as FrontArticleController;
 use App\Http\Controllers\Front\CategoryController as FrontCategoryController;
 use App\Http\Controllers\Front\ContactController;
-use App\Http\Controllers\Front\CommentController;
+use App\Http\Controllers\Front\CommentController as FrontCommentController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,15 +28,22 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 
+
+
+
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'about']);
 Route::get('/contact', [ContactController::class, 'index']);
 
 
 Route::get('/p/{slug}', [FrontArticleController::class, 'show']);
+Route::post('/p/{slug}/comment', [FrontArticleController::class, 'add_comment'])->name('add_comment');
+Route::post('/p/{slug}/add_reply', [FrontArticleController::class, 'add_reply'])->name('add_reply');
+Route::post('/p/{slug}/delete_comment/{commentId}', [FrontArticleController::class, 'destroyComment'])->name('destroyComment');
+Route::post('/p/{slug}/edit_comment/{commentId}', [FrontArticleController::class, 'editComment'])->name('editComment');
+
 Route::post('/articles/search', [FrontArticleController::class, 'index'])->name('search');
 Route::get('/articles', [FrontArticleController::class, 'index']);
-
 Route::get('category/{slug}', [FrontCategoryController::class, 'index']);
 
 Route::middleware('auth')->group(function(){

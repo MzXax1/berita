@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d19aef0ebfed23ebe112406eb09d6091",
+    "content-hash": "5b40cb2d103183299b8b97f927e171d9",
     "packages": [
         {
             "name": "brick/math",
@@ -3093,16 +3093,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.3",
+            "version": "v0.12.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "b6b6cce7d3ee8fbf31843edce5e8f5a72eff4a73"
+                "reference": "2fd717afa05341b4f8152547f142cd2f130f6818"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/b6b6cce7d3ee8fbf31843edce5e8f5a72eff4a73",
-                "reference": "b6b6cce7d3ee8fbf31843edce5e8f5a72eff4a73",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/2fd717afa05341b4f8152547f142cd2f130f6818",
+                "reference": "2fd717afa05341b4f8152547f142cd2f130f6818",
                 "shasum": ""
             },
             "require": {
@@ -3166,9 +3166,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.3"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.4"
             },
-            "time": "2024-04-02T15:57:53+00:00"
+            "time": "2024-06-10T01:18:23+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -5755,70 +5755,6 @@
                 "source": "https://github.com/UniSharp/laravel-filemanager/tree/v2.9.0"
             },
             "time": "2024-04-08T06:24:32+00:00"
-        },
-        {
-            "name": "usamamuneerchaudhary/commentify",
-            "version": "1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/usamamuneerchaudhary/commentify.git",
-                "reference": "c70cfe8cd4cc1cd759e61b5e83726d8e951af2c7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/usamamuneerchaudhary/commentify/zipball/c70cfe8cd4cc1cd759e61b5e83726d8e951af2c7",
-                "reference": "c70cfe8cd4cc1cd759e61b5e83726d8e951af2c7",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "*",
-                "illuminate/support": "*",
-                "livewire/livewire": "^3.0",
-                "php": "^8.1"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^v8.0.4",
-                "phpunit/phpunit": "^10.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Usamamuneerchaudhary\\Commentify\\Providers\\MarkdownServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Usamamuneerchaudhary\\Commentify\\": "src",
-                    "Usamamuneerchaudhary\\Commentify\\Database\\Factories\\": "database/factories"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Usama Muneer",
-                    "email": "hello@usamamuneer.me",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Easy Laravel Livewire Comments with TailwindCSS UI",
-            "keywords": [
-                "commentify",
-                "comments",
-                "laravel-livewire",
-                "livewire",
-                "livewire-comments",
-                "usamamuneerchaudhary"
-            ],
-            "support": {
-                "issues": "https://github.com/usamamuneerchaudhary/commentify/issues",
-                "source": "https://github.com/usamamuneerchaudhary/commentify/tree/1.5"
-            },
-            "time": "2024-02-28T07:03:34+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

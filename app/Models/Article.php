@@ -10,7 +10,6 @@ use Usamamuneerchaudhary\Commentify\Traits\Commentable;
 class Article extends Model
 {
     use HasFactory;
-    use Commentable;
 
     protected $fillable = [
         'categories_id','user_id', 'title', 'slug', 'desc', 'img', 'status', 'views', 'publish_date'
@@ -26,5 +25,9 @@ class Article extends Model
     public function User(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

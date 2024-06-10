@@ -173,7 +173,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\SideWidgetProvider::class,
-        Usamamuneerchaudhary\Commentify\Providers\CommentifyServiceProvider::class,
     ])->toArray(),
 
     /*

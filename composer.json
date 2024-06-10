@@ -15,7 +15,6 @@
         "livewire/livewire": "^3.4",
         "nesbot/carbon": "^2.72",
         "unisharp/laravel-filemanager": "^2.6",
-        "usamamuneerchaudhary/commentify": "^1.5",
         "yajra/laravel-datatables-oracle": "^11.1"
     },
     "require-dev": {
